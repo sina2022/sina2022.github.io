@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/REACT-PORTFOLIO/static/css/main.39598de6.css",
+    "main.js": "/REACT-PORTFOLIO/static/js/main.f2148660.js",
+    "static/media/programming2.png": "/REACT-PORTFOLIO/static/media/programming2.d698ac305192a5f0234e.png",
+    "static/media/sina.png": "/REACT-PORTFOLIO/static/media/sina.8a5ce9280d10890054b9.png",
+    "static/media/CV.pdf": "/REACT-PORTFOLIO/static/media/CV.0916177d8d895ba651a8.pdf",
+    "static/media/devv.webp": "/REACT-PORTFOLIO/static/media/devv.0a7a0f6f166ae39eaa1a.webp",
+    "index.html": "/REACT-PORTFOLIO/index.html",
+    "main.39598de6.css.map": "/REACT-PORTFOLIO/static/css/main.39598de6.css.map",
+    "main.f2148660.js.map": "/REACT-PORTFOLIO/static/js/main.f2148660.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39598de6.css",
+    "static/js/main.f2148660.js"
+  ]
+}
