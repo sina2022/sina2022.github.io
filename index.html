@@ -1,1 +1,291 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>React Personal Portfolio Website</title><script defer="defer" src="/REACT-PORTFOLIO/static/js/main.1dac4267.js"></script><link href="/REACT-PORTFOLIO/static/css/main.2649016b.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sina Kooshesh — Software Engineer</title>
+<meta name="description" content="Sina Kooshesh — Software Engineer with 7+ years building enterprise applications end-to-end. Java, Spring Boot, Angular, and more.">
+<meta property="og:title" content="Sina Kooshesh — Software Engineer">
+<meta property="og:description" content="7+ years building reliable enterprise software end-to-end — backend, full-stack, and the tools & courses I build along the way.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sinakooshesh.com">
+<link rel="icon" href="favicon.ico">
+<style>
+:root{
+  --accent:#6366f1; --accent2:#8b5cf6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+body.light{--bg:#ffffff;--bg2:#f6f7fb;--fg:#1a1f2e;--muted:#5b6472;--line:#e6e8ef;--card:#ffffff;--chip:#f0f1f7}
+body.dark{--bg:#0b0f1a;--bg2:#111624;--fg:#e7ecf5;--muted:#9aa4b6;--line:#222a3d;--card:#141a2b;--chip:#1b2236}
+body{background:var(--bg);color:var(--fg)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.accent{color:var(--accent)}
+.grad-text{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(12px);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:20px;height:64px}
+nav .logo{font-weight:800;font-size:19px;letter-spacing:-.02em}
+nav .logo span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;margin-right:9px;font-size:15px;vertical-align:middle}
+nav .links{margin-left:auto;display:flex;gap:26px;align-items:center}
+nav .links a{color:var(--muted);font-size:14.5px;font-weight:500}
+nav .links a:hover{color:var(--fg)}
+nav .cta{padding:8px 15px;border-radius:9px;background:var(--accent);color:#fff!important;font-weight:600}
+nav .cta:hover{filter:brightness(1.08)}
+#themeBtn,#burger{background:none;border:1px solid var(--line);color:var(--fg);width:38px;height:38px;border-radius:9px;cursor:pointer;font-size:16px}
+#burger{display:none}
+@media(max-width:760px){
+  nav .links{position:fixed;inset:64px 0 auto 0;background:var(--bg);flex-direction:column;gap:0;
+    border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .25s;padding:8px 0}
+  nav .links.open{transform:translateY(0)}
+  nav .links a{width:100%;padding:13px 22px}
+  #burger{display:inline-block;margin-left:auto}
+}
+
+/* hero */
+.hero{padding:76px 0 60px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-160px;right:-120px;width:460px;height:460px;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 32%,transparent),transparent 68%);filter:blur(10px);z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:44px;align-items:center}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.03em;font-weight:800}
+.hero p.lead{margin-top:18px;font-size:1.18rem;color:var(--muted);max-width:33em}
+.hero .btns{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:12px 20px;border-radius:11px;font-weight:600;font-size:15px;border:1px solid var(--line);display:inline-flex;gap:8px;align-items:center;transition:.15s}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px var(--accent)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.socials{margin-top:26px;display:flex;gap:14px}
+.socials a{width:42px;height:42px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.15s}
+.socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.socials svg{width:20px;height:20px;fill:currentColor}
+.hero .photo{justify-self:center;position:relative}
+.hero .photo img{width:270px;height:270px;object-fit:cover;border-radius:26px;border:1px solid var(--line);
+  box-shadow:0 24px 60px -24px color-mix(in srgb,var(--accent) 60%,transparent)}
+.hero .photo::after{content:"";position:absolute;inset:-10px;border-radius:32px;border:1.5px dashed color-mix(in srgb,var(--accent) 45%,transparent);z-index:-1}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero .btns,.socials{justify-content:center}.hero .photo{order:-1}.hero .photo img{width:190px;height:190px}}
+
+/* sections */
+section{padding:64px 0}
+.section-h{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.section-h::before{content:attr(data-num);color:var(--accent);font-size:1rem;font-weight:700;margin-right:10px;font-family:monospace}
+.section-sub{color:var(--muted);margin-bottom:34px;max-width:46em}
+.alt{background:var(--bg2)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid p strong{color:var(--fg)}
+.facts{display:grid;gap:14px;align-content:start}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-size:1.7rem;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.fact span{color:var(--muted);font-size:14px}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skillcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.skillcard h4{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:5px 11px;font-size:13.5px;font-weight:500}
+
+/* work */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:.18s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:0 18px 40px -22px var(--accent)}
+.card .badge{position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:4px 9px;border-radius:20px}
+.badge.live{background:color-mix(in srgb,#22c55e 18%,transparent);color:#16a34a}
+.badge.soon{background:color-mix(in srgb,#f59e0b 20%,transparent);color:#d97706}
+.badge.priv{background:var(--chip);color:var(--muted)}
+.card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,transparent),color-mix(in srgb,var(--accent2) 22%,transparent));margin-bottom:16px}
+.card h3{font-size:1.22rem;letter-spacing:-.01em;margin-bottom:9px}
+.card p{color:var(--muted);font-size:14.6px;flex:1}
+.card .tags{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.card .tags span{font-size:12px;color:var(--muted);background:var(--chip);border-radius:6px;padding:3px 9px}
+.card .actions{display:flex;gap:10px}
+.card .actions a{font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px}
+.card .actions a:hover{text-decoration:underline}
+.card .actions .disabled{color:var(--muted);cursor:default}
+
+/* contact */
+.contact{text-align:center}
+.contact .section-h::before{margin-right:10px}
+.contact p{color:var(--muted);max-width:34em;margin:0 auto 28px}
+.contact .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body class="dark">
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#top"><span>SK</span>Sina Kooshesh</a>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="assets/Sina_Kooshesh_CV.pdf" target="_blank" rel="noopener">Résumé</a>
+    </div>
+    <button id="themeBtn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    <button id="burger" title="Menu" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Software Engineer</div>
+      <h1>Hi, I'm Sina — I build <span class="grad-text">reliable software</span>, end to end.</h1>
+      <p class="lead">7+ years shipping enterprise applications — from Java/Spring backends and SQL data layers to Angular front-ends, Docker, and the cloud. I like the hard parts: production debugging, legacy modernization, and turning messy requirements into maintainable systems.</p>
+      <div class="btns">
+        <a class="btn primary" href="#work">View my work →</a>
+        <a class="btn ghost" href="assets/Sina_Kooshesh_CV.pdf" target="_blank" rel="noopener">⬇ Download CV</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/sina2022" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.82 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.44-2.7 5.42-5.27 5.7.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+        <a href="https://linkedin.com/in/sina-kooshesh-352494b9" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg></a>
+        <a href="mailto:sinakooshesh@gmail.com" title="Email" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm10 7.5L3.5 6h17L12 11.5Zm0 2.2L3 7.9V18h18V7.9l-9 5.8Z"/></svg></a>
+        <a href="https://wa.me/14382264288" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.24.66-1.4 1.26-1.9 1.3-.5.05-1.1.24-3.7-.77-3.1-1.22-5.06-4.37-5.2-4.57-.16-.2-1.24-1.65-1.24-3.15 0-1.5.79-2.24 1.07-2.54.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.51.24.58.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.24.66-.15.27.1 1.7.8 2 .95.28.15.47.22.54.34.07.12.07.69-.17 1.35Z"/></svg></a>
+      </div>
+    </div>
+    <div class="photo"><img src="assets/profile.png" alt="Sina Kooshesh"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-h" data-num="01.">About</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a software engineer with <strong>7+ years of experience</strong> delivering enterprise applications end-to-end. My core is backend engineering in <strong>Java and Spring Boot</strong>, but I work across the whole stack — <strong>Angular and TypeScript</strong> on the front, <strong>MySQL</strong> and REST APIs in the middle, <strong>Docker</strong> and <strong>AWS</strong> around it.</p>
+        <p>Most of my career has been in <strong>enterprise healthcare</strong>, where correctness, data privacy, and uptime aren't optional. I enjoy the parts other people avoid: <strong>debugging production issues</strong> under pressure, <strong>modernizing legacy systems</strong> safely, and turning vague requirements into software that's actually maintainable.</p>
+        <p>Outside of client work, I build my own tools and open-source learning programs — including two full job-ready engineering courses and a market-analysis assistant. I like understanding things deeply enough to teach them.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>7+</b><span>Years of experience</span></div>
+        <div class="fact"><b>Java · Spring</b><span>Backend core</span></div>
+        <div class="fact"><b>Full-stack</b><span>Angular · TypeScript · SQL</span></div>
+        <div class="fact"><b>Healthcare</b><span>Enterprise domain</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="wrap">
+    <h2 class="section-h" data-num="02.">Skills &amp; Tools</h2>
+    <p class="section-sub">The stack I reach for — plus the practices that keep it reliable in production.</p>
+    <div class="skills">
+      <div class="skillcard"><h4>Languages</h4><div class="chips">
+        <span class="chip">Java</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">PHP</span></div></div>
+      <div class="skillcard"><h4>Backend</h4><div class="chips">
+        <span class="chip">Spring Boot</span><span class="chip">Grails</span><span class="chip">Hibernate / JPA</span><span class="chip">REST APIs</span><span class="chip">Microservices</span></div></div>
+      <div class="skillcard"><h4>Frontend</h4><div class="chips">
+        <span class="chip">Angular</span><span class="chip">RxJS</span><span class="chip">React</span><span class="chip">HTML / CSS</span></div></div>
+      <div class="skillcard"><h4>Data</h4><div class="chips">
+        <span class="chip">MySQL</span><span class="chip">SQL Tuning</span><span class="chip">Query Optimization</span></div></div>
+      <div class="skillcard"><h4>DevOps &amp; Cloud</h4><div class="chips">
+        <span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">CI / CD</span><span class="chip">Git</span></div></div>
+      <div class="skillcard"><h4>Practices</h4><div class="chips">
+        <span class="chip">System Design</span><span class="chip">Testing</span><span class="chip">Agile</span><span class="chip">Production Debugging</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2 class="section-h" data-num="03.">Featured Work</h2>
+    <p class="section-sub">Open-source programs I built end-to-end, a live tool, and the enterprise work behind my experience.</p>
+    <div class="cards">
+
+      <div class="card">
+        <span class="badge live">Live</span>
+        <div class="ico">☕</div>
+        <h3>Senior Java Engineer — Job-Ready Program</h3>
+        <p>A complete, open-source interview-prep program: 220+ lessons, 100+ coding problems, 7 system-design case studies, mock-interview simulator, and a self-contained offline study app.</p>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>System Design</span><span>Docker</span></div>
+        <div class="actions">
+          <a href="https://sina2022.github.io/senior-java-engineer-job-ready-course/" target="_blank" rel="noopener">↗ Live app</a>
+          <a href="https://github.com/sina2022/senior-java-engineer-job-ready-course" target="_blank" rel="noopener">◇ Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge live">Live</span>
+        <div class="ico">🤖</div>
+        <h3>AI Engineer — Job-Ready Course</h3>
+        <p>An end-to-end AI/ML engineering curriculum — Python foundations, machine learning, deep learning, LLMs, RAG, MLOps, and agentic AI — with a browsable offline course app.</p>
+        <div class="tags"><span>Python</span><span>Machine Learning</span><span>LLMs</span><span>RAG</span></div>
+        <div class="actions">
+          <a href="https://sina2022.github.io/ai-engineer-job-ready-course/" target="_blank" rel="noopener">↗ Live app</a>
+          <a href="https://github.com/sina2022/ai-engineer-job-ready-course" target="_blank" rel="noopener">◇ Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge soon">Demo soon</span>
+        <div class="ico">📈</div>
+        <h3>Trade Helper</h3>
+        <p>A read-only market-analysis assistant: volatility &amp; expected-move reads, multi-timeframe structure, and an honest cost check before you act. It analyzes — it never places trades.</p>
+        <div class="tags"><span>Python</span><span>Analytics</span><span>Fintech</span></div>
+        <div class="actions">
+          <a class="disabled" title="Live demo coming soon">↗ Live demo — coming soon</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge priv">Proprietary</span>
+        <div class="ico">🏥</div>
+        <h3>Healthcare &amp; Enterprise Systems</h3>
+        <p>7+ years building and modernizing production healthcare applications — patient-facing systems, hospital integrations, strict data-privacy requirements, and high-uptime services on Java / Spring / Grails + Angular.</p>
+        <div class="tags"><span>Healthcare</span><span>Legacy Modernization</span><span>Production</span><span>Spring</span></div>
+        <div class="actions">
+          <a class="disabled" title="Client work — no public repository">◇ Private client work</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt contact">
+  <div class="wrap">
+    <h2 class="section-h" data-num="04.">Get in touch</h2>
+    <p>Open to interesting engineering problems and collaborations. The fastest way to reach me is email or LinkedIn.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:sinakooshesh@gmail.com">✉ sinakooshesh@gmail.com</a>
+      <a class="btn ghost" href="https://linkedin.com/in/sina-kooshesh-352494b9" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/sina2022" target="_blank" rel="noopener">◇ GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Sina Kooshesh</span>
+    <span>Montréal, Canada · Built from scratch, hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+const b=document.body, tb=document.getElementById('themeBtn');
+function setT(t){b.className=t;tb.textContent=t==='dark'?'☀️':'🌙';localStorage.setItem('sk_theme',t);}
+setT(localStorage.getItem('sk_theme')|| (matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));
+tb.onclick=()=>setT(b.className==='dark'?'light':'dark');
+const links=document.getElementById('links'),burger=document.getElementById('burger');
+burger.onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
